@@ -48,7 +48,7 @@ continue1.click()
 sleep(3)
 
 password=driver.find_element(By.XPATH, value='//*[@id="password"]/div[1]/div/div[1]/input')
-password.send_keys("xF6RnyjzUBHYQd")
+password.send_keys(GOOGLE_PASSWORD)
 
 continue2=driver.find_element(By.XPATH, value='//*[@id="passwordNext"]/div/button')
 continue2.click()
