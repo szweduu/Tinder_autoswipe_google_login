@@ -7,6 +7,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 from selenium.webdriver.support.expected_conditions import visibility_of_all_elements_located
 
+
+#Your Email and Password to google account
+GOOGLE_EMAIL="YOUR GOOGLE LOGIN"
+GOOGLE_PASSWORD="YOUR GOOGLE PASSWORD"
+
+
 chrome_options=webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
@@ -41,7 +47,7 @@ driver.switch_to.window(google_login_window)
 print(driver.title)
 
 email=driver.find_element(By.XPATH, value='//*[@id="identifierId"]')
-email.send_keys("szmichal224@gmail.com")
+email.send_keys("GOOGLE_EMAIL")
 
 continue1=driver.find_element(By.XPATH, value='//*[@id="identifierNext"]/div/button')
 continue1.click()
