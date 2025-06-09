@@ -12,11 +12,13 @@ from selenium.webdriver.support.expected_conditions import visibility_of_all_ele
 GOOGLE_EMAIL="YOUR GOOGLE LOGIN"
 GOOGLE_PASSWORD="YOUR GOOGLE PASSWORD"
 
+#Browsere webdriver
 
 chrome_options=webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
-
 driver=webdriver.Chrome(options=chrome_options)
+
+#Openinng Tinder website
 
 driver.get("https://tinder.com/app/recs")
 driver.maximize_window()
@@ -24,6 +26,7 @@ sleep(2)
 cookies=driver.find_element(By.CLASS_NAME, value='lxn9zzn')
 cookies.click()
 sleep(3)
+
 def error():
     try:
         cookies1=driver.find_element(By.XPATH, value='//*[@id="s608155990"]/div/div[1]/div[1]/button')
@@ -32,15 +35,18 @@ def error():
         print("x")
 error()
 
+#Google account loging
+
 click_login = driver.find_element(By.XPATH, value='//*[@id="s-1958430230"]/div/div[1]/div/main/div[1]/div/div/div/div/div/header/div/div[2]/div[2]/a')
 click_login.click()
 sleep(2)
 
+
 original_window = driver.current_window_handle
-
 login=driver.find_element(By.XPATH, value='//*[@id="s-876596071"]/div')
-
 login.click()
+
+#Openinng Tinder website
 
 google_login_window = driver.window_handles[1]
 driver.switch_to.window(google_login_window)
@@ -59,9 +65,7 @@ password.send_keys(GOOGLE_PASSWORD)
 continue2=driver.find_element(By.XPATH, value='//*[@id="passwordNext"]/div/button')
 continue2.click()
 
-# sleep(2)
-# continue3=driver.find_element(By.XPATH, value='//*[@id="yDmH0d"]/c-wiz/div/div[3]/div/div/div[2]/div/div/button')
-# continue3.click()
+#switching to orginal window
 
 driver.switch_to.window(original_window)
 print(driver.title)
@@ -80,14 +84,6 @@ cookies1 = driver.find_element(By.XPATH, '//*[@id="s-1958430230"]/div/div[2]/div
 cookies1.click()
 
 sleep(7)
-# for n in range(100):
-#
-#     #Add a 1 second delay between likes.
-#     sleep(1)
-#
-#     print("called")
-#     like_button = driver.find_element(By.XPATH, value='//*[@id="content"]/div/div/div/div/main/div/div/div/div/button')
-#     like_button.click()
 
 actions = ActionChains(driver)
 for n in range(100):
